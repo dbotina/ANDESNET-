@@ -9,24 +9,25 @@
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
-    background:#0f172a;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
     color:white;
     text-align:center;
 }
 
 header{
-    background:#111827;
-    padding:40px 20px;
+    padding:50px 20px;
 }
 
 header img{
-    width:220px;
-    border-radius:15px;
-    margin-bottom:20px;
+    width:250px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(56,189,248,0.6);
+    margin-bottom:25px;
 }
 
 h1{
     color:#38bdf8;
+    font-size:32px;
 }
 
 section{
@@ -34,21 +35,27 @@ section{
 }
 
 .card{
-    background:#1e293b;
-    margin:20px auto;
-    padding:25px;
-    border-radius:15px;
-    max-width:700px;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    margin:25px auto;
+    padding:30px;
+    border-radius:20px;
+    max-width:750px;
+    box-shadow:0 0 25px rgba(0,0,0,0.5);
 }
 
 button{
-    padding:15px 25px;
+    padding:15px 30px;
     border:none;
-    border-radius:30px;
+    border-radius:40px;
     font-size:16px;
     cursor:pointer;
-    margin:10px;
+    margin:15px;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
 }
 
 .whatsapp{
@@ -56,15 +63,24 @@ button{
     color:white;
 }
 
-.qr{
+.qr-btn{
     background:#38bdf8;
     color:black;
 }
 
-footer{
-    background:#111827;
+.qr-container{
+    margin-top:20px;
     padding:20px;
+    background:white;
+    display:inline-block;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+footer{
     margin-top:40px;
+    padding:25px;
+    background:#111827;
 }
 </style>
 </head>
@@ -72,36 +88,42 @@ footer{
 <body>
 
 <header>
-    <!-- IMAGEN LOGO + CAMIONETA -->
     <img src="logo-andesnet.png" alt="AndesNet Logo">
     <h1>ANDESNET SOLUCIONES TECNOLÓGICAS</h1>
-    <p>Infraestructura Digital • Telecomunicaciones • Redes</p>
+    <p>Pasto - Colombia | Infraestructura Digital y Telecomunicaciones</p>
 </header>
 
 <section>
+
 <div class="card">
 <h2>Perfil Profesional</h2>
-
 <p><strong>David Botina</strong></p>
+
 <p>
-Técnico en Telecomunicaciones<br>
-Electricidad y Electrónica Básica<br>
-Estudiante de Ingeniería de Sistemas<br>
-Mecánica Industrial<br>
-Infraestructura de Redes y Servidores
+🔹 Estudiante de Ingeniería de Sistemas<br>
+🔹 Técnico en Telecomunicaciones<br>
+🔹 Experiencia laboral activa en el campo de las telecomunicaciones<br>
+🔹 Electricidad y Electrónica Básica<br>
+🔹 Infraestructura de Redes HFC y FTTH<br>
+🔹 Mecánica Industrial
+</p>
+
+<p style="margin-top:15px; font-size:15px; opacity:0.9;">
+Profesional en formación con experiencia práctica en instalación,
+mantenimiento y optimización de redes de telecomunicaciones,
+infraestructura digital y soporte técnico especializado.
 </p>
 
 </div>
 
 <div class="card">
 <h2>Servicios</h2>
-
 <p>
 ✔ Instalación y mantenimiento de redes HFC y FTTH<br>
-✔ Configuración de MTA y equipos<br>
-✔ Infraestructura de servidores<br>
+✔ Configuración de MTA y routers<br>
 ✔ Optimización WiFi 2G / 5G<br>
-✔ Soporte técnico especializado
+✔ Infraestructura de servidores<br>
+✔ Soporte técnico especializado en campo
 </p>
 </div>
 
@@ -114,15 +136,19 @@ Infraestructura de Redes y Servidores
 
 <br>
 
-<!-- BOTÓN QR -->
-<button class="qr" onclick="mostrarQR()">📷 Mostrar Código QR</button>
+<button class="qr-btn" onclick="mostrarQR()">📷 Ver Código QR Oficial</button>
 
-<br><br>
-
-<img id="qrImagen" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://dbotina.github.io/andesnet-soluciones-tecnologicas/" 
-style="display:none; margin-top:20px; border-radius:10px;">
+<div id="qrBox" style="display:none;">
+    <div class="qr-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://dbotina.github.io/andesnet-soluciones-tecnologicas/" alt="QR AndesNet">
+        <p style="color:black; font-weight:bold; margin-top:10px;">
+        ANDESNET - Pasto Colombia
+        </p>
+    </div>
+</div>
 
 </div>
+
 </section>
 
 <footer>
@@ -131,14 +157,15 @@ style="display:none; margin-top:20px; border-radius:10px;">
 
 <script>
 function mostrarQR(){
-    var qr = document.getElementById("qrImagen");
-    if(qr.style.display === "none"){
-        qr.style.display = "block";
+    var box = document.getElementById("qrBox");
+    if(box.style.display === "none"){
+        box.style.display = "block";
     }else{
-        qr.style.display = "none";
+        box.style.display = "none";
     }
 }
 </script>
 
 </body>
 </html>
+
